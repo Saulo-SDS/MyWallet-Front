@@ -1,10 +1,10 @@
+import SingIn from '../Pages/SingIn';
 import './App.css';
-
 function App() {
   return (
-    <div>
-      <h1>On</h1>
-    </div>
+    <>
+      <SingIn/>  
+    </>
   );
 }
 
