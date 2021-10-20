@@ -27,11 +27,12 @@ const Form = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 `;
 
 const Input = styled.input`
     height: 58px;
-    width: 310px;
+    width: 95%;
     border: none;
     border-radius: 5px;
     margin-bottom: 13px;
@@ -51,7 +52,7 @@ const Input = styled.input`
 
 const Button = styled.button`
     height: 46px;
-    width: 326px;
+    width: 100%;
     font-family: Raleway;
     font-size: 20px;
     font-weight: 700;

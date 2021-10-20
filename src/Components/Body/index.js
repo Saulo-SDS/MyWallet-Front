@@ -18,7 +18,7 @@ const Box = styled.div`
     left: 25px;
     top: 78px;
     border-radius: 5px;
-        background: #fff;
+    background: #fff;
 `;
 
 const NoInfos = styled.div`

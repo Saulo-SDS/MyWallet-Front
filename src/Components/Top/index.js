@@ -1,14 +1,13 @@
 import styled from "styled-components";
-import { Container } from "../Shared";
 import {RiLogoutBoxRLine} from "react-icons/ri";
 
-function Top() {
+function Top({text}) {
 
     return (
         <Header>
             <Info>
-                <h2>Olá, Fulano</h2>
-                <RiLogoutBoxRLine size="25"/>
+                <h2>{ text ? text : "Olá, Fulano"}</h2>
+                {text ? "": <RiLogoutBoxRLine size="25"/>}
             </Info>
         </Header>
     );
