@@ -6,6 +6,10 @@ body {
   padding: 0;
   background-color: #8C11BE;
 }
+
+a{
+  text-decoration: none;
+}
 .icon path {
   stroke: #fff; 
 }

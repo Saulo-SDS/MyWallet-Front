@@ -1,24 +1,19 @@
-import styled from "styled-components";
 import BoxInfos from "../../Components/Body";
 import Buttons from "../../Components/Buttons";
-import { Box } from "../../Components/Shared";
 import Top from "../../Components/Top";
+import { DashboardBox, Box } from "../../Components/Shared";
 
 function Dashboard() {
 
     return (
-        <Container>
+        <DashboardBox>
             <Top/>
             <Box>
                 <BoxInfos/>
             </Box>
             <Buttons/>
-        </Container>
+        </DashboardBox>
     );
 }
-
-const Container = styled.div`
-    padding: 25px 25px 25px 25px;
-`;
 
 export default Dashboard;

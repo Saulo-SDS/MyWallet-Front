@@ -6,6 +6,20 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    a{
+        font-family: Raleway;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 18px;
+        margin-top: 30px;
+        color: #fff;
+    }
+`;
+
+const DashboardBox = styled.div`
+    padding: 25px 25px 25px 25px;
+    height: 100vh;
 `;
 
 const Box = styled.div`
@@ -73,6 +87,7 @@ const Link = styled.p`
 `
 
 export{
+    DashboardBox,
     Container,
     Box,
     Form,

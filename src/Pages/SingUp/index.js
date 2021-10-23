@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
-import  { Container, Box, Form, Input, Button, Link } from "../../Components/Shared/index";
+import { Link } from "react-router-dom";
+import  { Container, Box, Form, Input, Button } from "../../Components/Shared/index";
 
 function SingUp() {
     let history = useHistory();
@@ -15,7 +16,7 @@ function SingUp() {
                     <Input placeholder="Confirme a senha"/>
                     <Button>Cadastrar</Button>
                 </Form>
-                <Link>Já tem uma conta? Entre agora!</Link>
+                <Link to="/">Já tem uma conta? Entre agora!</Link>
             </Box>
         </Container>
     );
