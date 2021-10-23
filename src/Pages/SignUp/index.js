@@ -18,6 +18,7 @@ function SingUp() {
     const [passwordInvalid, setPasswordInvalid] = useState(false);
 
     function validateInput(e) {
+
         e.preventDefault();
         setLoading(true);  
         
@@ -41,6 +42,7 @@ function SingUp() {
                 });
                 setLoading(false);
             });
+            
         }else {
             setPasswordInvalid(true);
             setTimeout(() => {
