@@ -27,11 +27,19 @@ const Box = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 90%;
     h1 {
         font-family: Saira Stencil One;
         font-size: 32px;
         font-weight: 400;
         line-height: 50px;
+        color: #fff;
+    }
+    p{
+        font-family: Raleway;
+        font-size: 20px;
+        padding-bottom: 15px;
+        text-align: center;
         color: #fff;
     }
 `;
@@ -51,7 +59,6 @@ const Input = styled.input`
     border-radius: 5px;
     margin-bottom: 13px;
     padding-left: 15px;
-
     font-family: Raleway;
     font-size: 20px;
     font-weight: 400;
