@@ -8,9 +8,11 @@ function Dashboard() {
     return (
         <DashboardBox>
             <Top/>
-            <Box>
+            <BoxInfos/>
+
+            {/*<Box>
                 <BoxInfos/>
-            </Box>
+            </Box>*/}
             <Buttons/>
         </DashboardBox>
     );

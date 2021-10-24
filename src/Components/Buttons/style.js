@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 const Box = styled.div`
-    width: 100%;
     margin-top: 15px;
+    height: 100px;
     position: relative;
+    margin-bottom: 15px;
 `;
 
 const BoxButton = styled.div`
     padding: 10px 0 10px 10px;
-    height: 114px;
+    height: 100px;
     width: 45%;
     border-radius: 5px;
     background-color: #A328D6;

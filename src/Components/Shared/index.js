@@ -18,8 +18,11 @@ const Container = styled.div`
 `;
 
 const DashboardBox = styled.div`
-    padding: 25px 25px 25px 25px;
-    height: 100vh;
+    margin: 0 25px 25px 25px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 `;
 
 const Box = styled.div`

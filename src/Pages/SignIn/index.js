@@ -26,8 +26,6 @@ function SingIn() {
             password
         }
 
-        console.log(body);
-
         getUser(body)
         .then(res => {
 
@@ -37,7 +35,7 @@ function SingIn() {
             }
             setUser(bodyUser)
             setLoading(false);          
-            history.push('/sign-up');
+            history.push('/user/payments');
         })
         .catch(err => {
             Swal.fire({
