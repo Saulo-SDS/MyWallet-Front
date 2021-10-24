@@ -1,12 +1,16 @@
 import ButtonLogout from "../Logout";
 import { Info } from "./style";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 function Top({text}) {
+
+    const { user, setUser } = useContext(UserContext);
 
     return (
         <header>
             <Info>
-                <h2>{ text ? text : "Olá, Fulano"}</h2>
+                <h2>{`Olá, ${user.name}`}</h2>
                 {text ? "": <ButtonLogout/>}
             </Info>
         </header>

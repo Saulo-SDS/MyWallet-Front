@@ -1,16 +1,80 @@
 import Top from "../../Components/Top";
 import styled from "styled-components";
 import { Button, Form, Input } from "../../Components/Shared";
+import { useState, useContext } from "react";
+import Loader from 'react-loader-spinner';
+import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
+import { postPayment } from "../../Components/Service/Api";
+import dayjs from "dayjs";
 
 function NewEntry() {
+
+
+    let history = useHistory();
+    const [value, setValue] = useState("");
+    const [describe, setDescribe] = useState("");
+    const [loading, setLoading] = useState(false);
+    const { user, setUser } = useContext(UserContext);
+
+
+    function saveEntry(e) {
+
+        e.preventDefault();
+        setLoading(true);
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${user.token}`
+            }
+        };
+        
+        const date = dayjs().format("YYYY-MM-DD");
+        const type = "entry";
+        const body = {
+            value, 
+            type, 
+            describe, 
+            date
+        };
+
+        postPayment(body, config)
+        .then(res => {
+            history.push("/user/payments");
+            setLoading(false);
+        })
+        .catch(err => {
+            Swal.fire({
+                icon:'error',
+                title:'Oops...',
+                text:'Dados inválidos tente novamente'
+            });
+            setLoading(false);
+        });
+    }
 
     return (
         <Container>
             <Top text="Nova entrada"/>
-            <Form>
-                <Input placeholder="Valor"/>
-                <Input placeholder="Descrição"/>
-                <Button>Salvar entrada</Button>
+            <Form onSubmit={saveEntry}>
+                <Input 
+                    type="number"
+                    step="0.01" 
+                    placeholder="Valor"
+                    onChange={(e) => setValue(e.target.value)} 
+                    required
+                />
+
+                <Input 
+                    type="text" 
+                    placeholder="Descrição" 
+                    onChange={(e) => setDescribe(e.target.value)}
+                    required
+                />
+                <Button type="submit" disabled={loading}>
+                    {!loading ? "Salvar entrada" :  <Loader type="ThreeDots" color="#FFFFFF" height={13} width={80} />}
+                </Button>
             </Form>
         </Container>
     );

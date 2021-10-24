@@ -15,8 +15,13 @@ function deleteSession(authorization) {
     return axios.delete(`${URL_SERVER}/user/logout`, authorization);
 }
 
+function postPayment(body, authorization) {
+    return axios.post(`${URL_SERVER}/user/payments/new`, body, authorization);
+}
+
 export {
     postUser,
     getUser,
     deleteSession,
+    postPayment,
 }
