@@ -8,19 +8,17 @@ import { getPayments } from "../../Components/Service/Api";
 import Payments from "../../Components/PaymentsBox/index";
 import LoadingBox from "../../Components/Loading/index";
 
-
 function Dashboard() {
 
     const [payments, setPayments] = useState(null);
     const { user } = useContext(UserContext);
 
     function loadPayments() {
-
         const config = {
-            headers: {
-                "Authorization": `Bearer ${user.token}`
-            }
-        };
+                headers: {
+                    "Authorization": `Bearer ${user.token}`
+                }
+            };
 
         getPayments(config)
         .then(res => {
@@ -33,11 +31,9 @@ function Dashboard() {
                 text:'Erro ao acessar pagamentos'
             });
         });
-
     }
 
     useEffect(loadPayments, [user.token]);
-   
 
     return (
         <DashboardBox>

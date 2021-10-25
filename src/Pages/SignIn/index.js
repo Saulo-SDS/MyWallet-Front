@@ -14,8 +14,16 @@ function SingIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const { setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
 
+    function haveLogin(){
+          //localStorage.clear()
+        const userInfo = localStorage.getItem('user');
+        if(userInfo) {
+            setUser(JSON.parse(userInfo));
+            history.push('/user/payments');
+        }
+    }
     function login(e) {
 
         e.preventDefault();
@@ -33,8 +41,10 @@ function SingIn() {
                 token: res.data.token,
                 name: res.data.user.name
             }
-            setUser(bodyUser)
-            setLoading(false);          
+
+            setUser(bodyUser);
+            setLoading(false);     
+            localStorage.setItem('user', JSON.stringify(bodyUser));     
             history.push('/user/payments');
         })
         .catch(err => {
@@ -46,7 +56,8 @@ function SingIn() {
             setLoading(false);
         });
     }
-
+    haveLogin();
+  
     return (
         <Container>
             <Box>

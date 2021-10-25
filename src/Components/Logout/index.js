@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { deleteSession } from "../Service/Api";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
-
 
 function ButtonLogout() {
 
@@ -33,8 +32,13 @@ function ButtonLogout() {
 
   }
 
+  function clearStorage(){
+    localStorage.clear()
+    logoutApp()
+  }
+
   return (
-      <div onClick={logoutApp}>
+      <div onClick={clearStorage}>
         <RiLogoutBoxRLine size="25"/>
       </div>
   );
