@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Dashboard from '../Pages/Dashboard';
 import NewEntry from '../Pages/NewEntry';
 import NewExit from '../Pages/NewExit';

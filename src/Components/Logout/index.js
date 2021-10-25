@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { deleteSession } from "../Service/Api";

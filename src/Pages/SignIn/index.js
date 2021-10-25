@@ -14,10 +14,9 @@ function SingIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     function haveLogin(){
-          //localStorage.clear()
         const userInfo = localStorage.getItem('user');
         if(userInfo) {
             setUser(JSON.parse(userInfo));
