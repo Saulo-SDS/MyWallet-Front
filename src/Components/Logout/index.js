@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { deleteSession } from "../Service/Api";
@@ -9,8 +9,7 @@ import Swal from "sweetalert2";
 function ButtonLogout() {
 
   let history = useHistory();
-  const [logout, setLogout] = useState();
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   function logoutApp(){
 

@@ -2,13 +2,8 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { SubtractCircle } from "grommet-icons";
 import { Link } from "react-router-dom";
 import { Box, BoxButton} from "./style";
-import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext";
 
-function Buttons() {
-    const [logout, setLogout] = useState();
-    const { user, setUser } = useContext(UserContext);
-    
+function Buttons() {   
 
     return (
         <Box>
@@ -21,7 +16,7 @@ function Buttons() {
             <Link to="/user/payments/new/exit">
                 <BoxButton right="0">
                     <SubtractCircle size="23px" color="#fff"/>
-                    <h6>Nova saida</h6>
+                    <h6>Nova saída</h6>
                 </BoxButton>
         </Link>
         </Box>

@@ -16,7 +16,7 @@ function NewEntry() {
     const [value, setValue] = useState("");
     const [describe, setDescribe] = useState("");
     const [loading, setLoading] = useState(false);
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
 
     function saveEntry(e) {

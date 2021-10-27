@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const URL_SERVER = "http://localhost:4000";
-const BEARER = 'Bearer';
 
 function postUser(body) {
     return axios.post(`${URL_SERVER}/sign-up`, body);
@@ -19,9 +18,14 @@ function postPayment(body, authorization) {
     return axios.post(`${URL_SERVER}/user/payments/new`, body, authorization);
 }
 
+function getPayments(authorization) {
+    return axios.get(`${URL_SERVER}/user/payments`, authorization);
+}
+
 export {
     postUser,
     getUser,
     deleteSession,
     postPayment,
+    getPayments
 }

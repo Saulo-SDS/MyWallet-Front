@@ -12,10 +12,10 @@ import dayjs from "dayjs";
 function NewExit() {
 
     let history = useHistory();
-    const [value, setValue] = useState("");
+    const [money, setMoney] = useState("");
     const [describe, setDescribe] = useState("");
     const [loading, setLoading] = useState(false);
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     function saveExit(e) {
 
@@ -30,6 +30,7 @@ function NewExit() {
         
         const date = dayjs().format("YYYY-MM-DD");
         const type = "exit";
+        const value = money * -1;
         const body = {
             value, 
             type, 
@@ -60,7 +61,7 @@ function NewExit() {
                     type="number"
                     step="0.01" 
                     placeholder="Valor"
-                    onChange={(e) => setValue(e.target.value)} 
+                    onChange={(e) => setMoney(e.target.value)} 
                     required
                 />
 
@@ -71,7 +72,7 @@ function NewExit() {
                     required
                 />
                 <Button type="submit" disabled={loading}>
-                    {!loading ? "Salvar saida" :  <Loader type="ThreeDots" color="#FFFFFF" height={13} width={80} />}
+                    {!loading ? "Salvar saída" :  <Loader type="ThreeDots" color="#FFFFFF" height={13} width={80} />}
                 </Button>
             </Form>
         </Container>
