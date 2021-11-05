@@ -9,39 +9,38 @@ import Payments from "../../Components/PaymentsBox/index";
 import LoadingBox from "../../Components/Loading/index";
 
 function Dashboard() {
+  const [payments, setPayments] = useState(null);
+  const { user } = useContext(UserContext);
 
-    const [payments, setPayments] = useState(null);
-    const { user } = useContext(UserContext);
+  function loadPayments() {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    };
 
-    function loadPayments() {
-        const config = {
-                headers: {
-                    "Authorization": `Bearer ${user.token}`
-                }
-            };
-
-        getPayments(config)
-        .then(res => {
-            setPayments(res.data);
-        })
-        .catch(err => {
-            Swal.fire({
-                icon:'error',
-                title:'Oops...',
-                text:'Erro ao acessar pagamentos'
-            });
+    getPayments(config)
+      .then((res) => {
+        setPayments(res.data.data);
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Erro ao acessar pagamentos",
         });
-    }
+      });
+  }
 
-    useEffect(loadPayments, [user.token]);
-
-    return (
-        <DashboardBox>
-            <Top/>
-            {payments ? <Payments data={payments}/> :  <LoadingBox/>}
-            <Buttons/>
-        </DashboardBox>
-    );
+  useEffect(loadPayments, [user.token]);
+  //console.log(payments);
+  return (
+    <DashboardBox>
+      <Top />
+      {payments ? <Payments data={payments} /> : <LoadingBox />}
+      <Buttons />
+    </DashboardBox>
+  );
 }
 
 export default Dashboard;
