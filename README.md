@@ -5,7 +5,7 @@ MyWallet is a digital wallet that allows you to control finances by recording en
 ## Start
 
 ### Clone this repository or download the zip file:
-`git clone https://github.com/patricia270/mywallet-front.git`
+`git clone https://github.com/SrSauloss/MyWallet-Front.git`
 ### In the project repository on your machine, to install the dependencies, type:
 `npm i`
 ### and finally:
