@@ -2,7 +2,7 @@
 
 MyWallet is a digital wallet that allows you to control finances by recording entries and exits, also displaying the current status of the balance (positive or negative).
 
-## Iniciar
+## Start
 
 ### Clone this repository or download the zip file:
 `git clone https://github.com/patricia270/mywallet-front.git`
