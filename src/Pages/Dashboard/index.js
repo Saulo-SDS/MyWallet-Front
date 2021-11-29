@@ -4,7 +4,7 @@ import { DashboardBox } from "../../Components/Shared";
 import { useState, useContext, useEffect } from "react";
 import Swal from "sweetalert2";
 import { UserContext } from "../../contexts/UserContext";
-import { getPayments } from "../../Components/Service/Api";
+import { getTransactions } from "../../Components/Service/Api";
 import Payments from "../../Components/PaymentsBox/index";
 import LoadingBox from "../../Components/Loading/index";
 
@@ -19,9 +19,9 @@ function Dashboard() {
       },
     };
 
-    getPayments(config)
+    getTransactions(config)
       .then((res) => {
-        setPayments(res.data.data);
+        setPayments(res.data);
       })
       .catch((err) => {
         Swal.fire({
@@ -33,7 +33,7 @@ function Dashboard() {
   }
 
   useEffect(loadPayments, [user.token]);
-  //console.log(payments);
+
   return (
     <DashboardBox>
       <Top />

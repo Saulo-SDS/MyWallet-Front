@@ -27,14 +27,14 @@ function NewTransaction() {
       },
     };
 
-    const data = dayjs().format("YYYY-MM-DD");
+    const date = dayjs().format("YYYY-MM-DD");
     const type = "entry";
     const value = op === "exit" ? money * -1 : money;
     const body = {
       value,
       type,
       describe,
-      data,
+      date,
     };
 
     postPayment(body, config)
@@ -43,7 +43,6 @@ function NewTransaction() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         Swal.fire({
           icon: "error",
           title: "Oops...",

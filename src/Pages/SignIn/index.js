@@ -38,7 +38,6 @@ function SingIn() {
 
     getUser(body)
       .then((res) => {
-        console.log(res.data);
         const bodyUser = {
           token: res.data.token,
           name: res.data.name,
@@ -50,7 +49,6 @@ function SingIn() {
         history.push("/client/transactions");
       })
       .catch((err) => {
-        console.log(err);
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -59,7 +57,7 @@ function SingIn() {
         setLoading(false);
       });
   }
-  //haveLogin();
+  haveLogin();
 
   return (
     <Container>

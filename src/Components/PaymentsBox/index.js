@@ -10,7 +10,8 @@ import {
 } from "./style";
 
 function Payments({ data }) {
-  const balance = data.balance;
+  const balance = data.balance.balance;
+
   function transformValue(value) {
     let valueFloat = parseFloat(value);
     if (valueFloat < 0) valueFloat *= -1;
@@ -25,8 +26,11 @@ function Payments({ data }) {
         {data.transactions.length > 0 ? (
           <>
             <BoxPayments>
-              {data.transactions.map(({ date, describe, value }) => (
-                <CardPayment color={value < 0 ? "#C70000" : "#03AC00"}>
+              {data.transactions.map(({ date, describe, value }, index) => (
+                <CardPayment
+                  key={index}
+                  color={value < 0 ? "#C70000" : "#03AC00"}
+                >
                   <p>{dayjs(date).format("DD/MM")}</p>
                   <p>{describe}</p>
                   <p>{transformValue(value)}</p>
